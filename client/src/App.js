@@ -62,8 +62,6 @@ function App() {
       .then((newtodosArray) => {
         setTodos(newtodosArray);
       });
-
-    // setTodos((todos) => todos.filter((todo) => todo._id !== data.result._id));
   };
 
   return (
@@ -108,6 +106,9 @@ function App() {
               type="text"
               className="add-todo-input"
               onChange={(e) => setNewTodo(e.target.value)}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? setNewTodo(e.target.value) : ""
+              }
               value={newTodo}
             />
             <div className="button" onClick={addTodo}>
