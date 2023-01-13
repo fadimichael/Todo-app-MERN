@@ -72,10 +72,10 @@ function App() {
       <div className="todos">
         {todos.length > 0 ? (
           todos.map((todo) => (
-            <div className="wrapper">
+            <div className="wrapper" key={todo._id}>
               <div
                 className={"todo" + (todo.complete ? " is-complete" : "")}
-                key={todo._id}
+                // key={todo._id}
                 onClick={() => completeTodo(todo._id)}>
                 <div className="checkbox"></div>
 
@@ -107,7 +107,7 @@ function App() {
               className="add-todo-input"
               onChange={(e) => setNewTodo(e.target.value)}
               onKeyDown={(e) =>
-                e.key === "Enter" ? setNewTodo(e.target.value) : ""
+                e.key === "Enter" ? addTodo(e.target.value) : ""
               }
               value={newTodo}
             />

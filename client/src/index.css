@@ -87,7 +87,7 @@ h4 {
 .delete-todo {
   position: absolute;
   top: 38%;
-  z-index: 1;
+  z-index: 2;
   transform: translateY(-50%);
   right: 16px;
   color: #EEE;
@@ -109,7 +109,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  z-index: 1;
   width: 64px;
   height: 64px;
   border-radius: 999px;
