@@ -11,7 +11,7 @@ function App() {
   }, []);
   console.log(todos);
   const GetTodos = () => {
-    fetch(api_base + "/todos/all")
+    fetch(process.env.REACT_APP_API_BASE + "/todos/all")
       .then((res) => res.json())
       .then((data) => setTodos(data))
       .catch((err) => console.error("Error: ", err));
