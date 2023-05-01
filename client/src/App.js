@@ -62,8 +62,6 @@ function App() {
       .then((newtodosArray) => {
         setTodos(newtodosArray);
       });
-
-    // setTodos((todos) => todos.filter((todo) => todo._id !== data.result._id));
   };
 
   return (
@@ -74,14 +72,15 @@ function App() {
       <div className="todos">
         {todos.length > 0 ? (
           todos.map((todo) => (
-            <div
-              className={"todo" + (todo.complete ? " is-complete" : "")}
-              key={todo._id}
-              onClick={() => completeTodo(todo._id)}>
-              <div className="checkbox"></div>
+            <div className="wrapper" key={todo._id}>
+              <div
+                className={"todo" + (todo.complete ? " is-complete" : "")}
+                // key={todo._id}
+                onClick={() => completeTodo(todo._id)}>
+                <div className="checkbox"></div>
 
-              <div className="text">{todo.text}</div>
-
+                <div className="text">{todo.text}</div>
+              </div>
               <div className="delete-todo" onClick={() => deleteTodo(todo._id)}>
                 x
               </div>
@@ -107,6 +106,9 @@ function App() {
               type="text"
               className="add-todo-input"
               onChange={(e) => setNewTodo(e.target.value)}
+              onKeyDown={(e) =>
+                e.key === "Enter" ? addTodo(e.target.value) : ""
+              }
               value={newTodo}
             />
             <div className="button" onClick={addTodo}>

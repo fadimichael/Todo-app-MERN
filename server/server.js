@@ -66,6 +66,7 @@ app.put("/todos/update/", async (req, res) => {
     todo.save();
     res.json(todo);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

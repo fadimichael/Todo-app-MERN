@@ -13,6 +13,7 @@ const connectDB = () => {
     mongoose.connect(URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      dbName: process.env.MONGO_DB_NAME,
       dbName: DbName,
     });
     console.log(colors.bgYellow("MongoDB connected ..."));
