@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/todos(.*)",
-      "destination": "/todos"
+      "source": "/server(.*)",
+      "destination": "/server"
     }
   ]
 }
