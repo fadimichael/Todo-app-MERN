@@ -70,7 +70,10 @@ app.put("/todos/update/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+if (PORT) {
+  app.listen(PORT, () => {
+    console.log(colors.bgGreen("Sever is listening to port : ", PORT));
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(colors.bgGreen("Sever is listening to port : ", PORT));
-});
+module.exports = app;
